@@ -17,6 +17,13 @@ env:
      JAVA_8_HOME=/usr/lib/jvm/java-8-oracle
      JAVA_9_HOME=/usr/lib/jvm/java-9-oracle
 
+before_install:
+  - unset _JAVA_OPTIONS
+  - wget http://www.deflaker.org/maven/apache-maven-3.3.9.zip
+  - unzip -qq apache-maven-3.3.9.zip
+  - export M2_HOME=$PWD/apache-maven-3.3.9
+  - export PATH=$M2_HOME/bin:$PATH
+
 install:
  - set -o pipefail
  - ls -al $JAVA_6_HOME
